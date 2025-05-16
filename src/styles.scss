@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #272727;
+}
+
+.board-game {
+  width: 400px;
+  height: 400px;
+  background: white;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  span {
+    width: 33.3333333333333%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 30px;
+    position: relative;
+    outline: 1px solid #aca9a9;
+    cursor: pointer;
+
+    &.hover {
+      background: #1d1010;
+    }
+
+    &::after {
+      content: "";
+      display: none;
+      position: absolute;
+      width: 150%;
+      height: 5px;
+      background: black;
+      z-index: 100;
+    }
+
+    &.horizontal {
+      &::after {
+        display: block;
+      }
+    }
+
+    &.vertical {
+      &::after {
+        display: block;
+        rotate: 90deg;
+      }
+    }
+
+    &.diagonal-1 {
+      &::after {
+        display: block;
+        rotate: 45deg;
+      }
+    }
+    &.diagonal-2 {
+      &::after {
+        display: block;
+        rotate: -45deg;
+      }
+    }
+
+    abbr {
+      font-size: 15px;
+      color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  }
+}
